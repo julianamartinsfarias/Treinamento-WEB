@@ -117,6 +117,7 @@ Os arquivos com as evidências ficam localizados na pasta target do projeto, est
  Json Cucumber: target\json-cucumber-reports\cucumber.json
  Xml Junit: tagert\xml-junit\junit.xml
 ```
+Ps.: Caso você necessite utilizar do Allure, o mesmo somente cria os relatórios pelo maven com o paramêtro 'allure:report', conforme exemplo de múltiplos comandos acima.
 
 ## LOG DE EXECUÇÃO
 
