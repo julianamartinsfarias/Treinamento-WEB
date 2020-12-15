@@ -26,6 +26,22 @@
 		<report>cucumber</report> <!-- allure ou cucumber -->
 	</properties>
 
+	<repositories>
+			<repository>
+				<id>jitpack.io</id>
+				<url>http://jitpack.io</url>
+			</repository>
+	<repository>
+		<snapshots>
+			<enabled>false</enabled>
+		</snapshots>
+		<id>bintray-epam-reportportal</id>
+		<name>bintray</name>
+		<url>http://dl.bintray.com/epam/reportportal</url>
+	</repository>
+	</repositories>
+
+
 	<build>
 		<plugins>
 			<plugin>
@@ -52,6 +68,7 @@
 						<artifactId>aspectjweaver</artifactId>
 						<version>${aspectj.version}</version>
 					</dependency>
+
 				</dependencies>
 			</plugin>
 

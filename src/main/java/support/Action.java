@@ -14,19 +14,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * @since 13/05/2018
  */
 @Log4j2
-public class Action extends DriverManager{
+public class Action extends DriverManager {
 
 
     /**
      * Returns an existing element from the screen
      *
-     * @param by      Type of "By"
+     * @param by Type of "By"
      * @return Returns an existing element from the screen
      * @author Rubens Lobo
      */
     public static WebElement getExistingElement(By by) {
         log.info(String.format("Retornando um elemento web via locator %s ", by.toString()));
-        return new WebDriverWait(getDriver(),configuration.timeout())
+        return new WebDriverWait(getDriver(), configuration.timeout())
                 .until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
@@ -34,26 +34,26 @@ public class Action extends DriverManager{
     /**
      * Returns a visible element from the screen
      *
-     * @param by      Type of "By"
+     * @param by Type of "By"
      * @return Returns an visible element from the screen
      * @author Rubens Lobo
      */
     public static WebElement getVisibleElement(By by) {
         log.info(String.format("Retornando um elemento web via locator %s ", by.toString()));
-        return new WebDriverWait(getDriver(),configuration.timeout())
+        return new WebDriverWait(getDriver(), configuration.timeout())
                 .until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     /**
      * Returns a clickable element from the screen
      *
-     * @param by      Type of "By"
+     * @param by Type of "By"
      * @return Returns a clickable element from the screen
      * @author Rubens Lobo
      */
     public static WebElement getClickableElement(By by) {
         log.info(String.format("Retornando um elemento web via locator %s ", by.toString()));
-        return new WebDriverWait(getDriver(),configuration.timeout())
+        return new WebDriverWait(getDriver(), configuration.timeout())
                 .until(ExpectedConditions.elementToBeClickable(by));
     }
 
@@ -61,7 +61,7 @@ public class Action extends DriverManager{
     /**
      * Clears the Text Field of a WebElement
      *
-     * @param by      Type of "By"
+     * @param by Type of "By"
      * @author Rubens Lobo
      */
     public static void clearField(By by) {
@@ -73,8 +73,8 @@ public class Action extends DriverManager{
     /**
      * Enters text in a WebElement Text Field
      *
-     * @param by      Type of "By"
-     * @param text    set a text to web element
+     * @param by   Type of "By"
+     * @param text set a text to web element
      * @author Rubens Lobo
      */
     public static void setText(By by, Object text) {
@@ -88,7 +88,7 @@ public class Action extends DriverManager{
     /**
      * Gets text from a WebElement Text Field
      *
-     * @param by      Type of "By"
+     * @param by Type of "By"
      * @author Rubens Lobo
      */
     public static String getText(By by) {
@@ -127,7 +127,7 @@ public class Action extends DriverManager{
     /**
      * Clicks in the web element
      *
-     * @param by      Type of "By"
+     * @param by Type of "By"
      * @author Rubens Lobo
      */
     public static void clickOnElement(By by) {
@@ -138,4 +138,17 @@ public class Action extends DriverManager{
         element.click();
     }
 
-}
+    public static boolean existElement(By element, int seconds) {
+        boolean res = true;
+        try{
+            int count = 0;
+            WebElement e;
+            while (count <= seconds) {
+                e = getDriver().findElement(element);
+                count += 1;
+                Thread.sleep(1000);
+            }} catch (Exception e){
+            res = false;
+        }
+        return res;
+    }}
